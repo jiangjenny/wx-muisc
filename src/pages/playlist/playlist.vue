@@ -54,8 +54,9 @@ export default {
     })
     playing = playing.reverse();
     for(var i=0;i<playing.length;i++){
-      const item = playing[i];  //item是个对象obj{ id: 3120975,status:'false' }
+      let item = playing[i];  //item是个对象obj{ id: 3120975,status:'false' }
       // 循环遍历播放每一项，发起请求，获取每一项渲染到页面
+      // console.log(item);
       fly.get("http://127.0.0.1:4000/song/detail?ids="+item.id,{})
       .then(d=>{
         this.musicData.push(d.data.songs[0])

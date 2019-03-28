@@ -72,6 +72,7 @@ export default {
     }
   },
   onLoad(options){
+    console.log(options);
     wx.setStorageSync("status", false); //开始默认设置status为true
     this.id = options.id;
     this.rotate = false;
@@ -292,7 +293,7 @@ export default {
     //监听跳转到首页按钮
     playing() {
       wx.switchTab({
-        url: "../index/main" //注意switchTab只能跳转到带有tab的页面，不能跳转到不带tab的页面
+        url: "../playlist/main" //注意switchTab只能跳转到带有tab的页面，不能跳转到不带tab的页面
       });
     },
     PrevSong(){

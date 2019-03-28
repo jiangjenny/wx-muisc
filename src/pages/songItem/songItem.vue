@@ -12,7 +12,7 @@
       </div>
     </div>
     <!-- 歌单详情 -->
-    <searchCon  @musicUrl="musicUrl(e)" @JoinTheList="JoinTheList" ></searchCon>
+    <searchCon  @musicUrl="musicUrl" @JoinTheList="JoinTheList" ></searchCon>
      <!-- 正在播放 -->
     <Playing @listenerButtonPause="listenerButtonPause"></Playing>
   </div>
@@ -30,7 +30,8 @@ export default {
     return {
       playCount: '',
       nickname: "",
-      songItem: {}
+      songItem: {},
+      itemId: '',
     }
   },
   components: {
@@ -66,9 +67,11 @@ export default {
       const url = '../search/main?search='+searchValue;
       wx.navigateTo({url})
     },
-    musicUrl(e) {
-        const url = "../music/main?id=" + e;
-        wx.navigateTo({ url });
+    musicUrl(itemID) {
+      console.log(itemID);
+      this.itemId = itemID;
+      const url = "../music/main?id=" + this.itemId;
+      wx.navigateTo({ url });
     },
     //监听button暂停按钮
     listenerButtonPause(){

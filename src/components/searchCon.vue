@@ -26,7 +26,8 @@ var fly = new Fly(); //创建fly实例
 export default {
   data(){
     return {
-      songItem: []
+      songItem: [],
+      itemID: ''
     }
   },
   onLoad(options){
@@ -54,7 +55,8 @@ export default {
   },  
   methods: {
     musicUrl(e) {
-      this.$emit('musicUrl',e)
+      this.itemID = e;
+      this.$emit('musicUrl',this.itemID)
     },
     JoinTheList(e) {
         let chongfu = [];
